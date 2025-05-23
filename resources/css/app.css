@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: light --light,
+    dark --dark;
+}
+
+
+@plugin "daisyui/theme" {
+    name: "light";
+    default: true;
+    prefersdark: false;
+    color-scheme: "light";
+    --color-base-100: oklch(98% 0.002 247.839);
+    --color-base-200: oklch(96% 0.003 264.542);
+    --color-base-300: oklch(92% 0.006 264.531);
+    --color-base-content: oklch(21% 0.034 264.665);
+    --color-primary: oklch(68% 0.169 237.323);
+    --color-primary-content: oklch(97% 0.013 236.62);
+    --color-secondary: oklch(65% 0.241 354.308);
+    --color-secondary-content: oklch(97% 0.014 343.198);
+    --color-accent: oklch(62% 0.214 259.815);
+    --color-accent-content: oklch(97% 0.014 254.604);
+    --color-neutral: oklch(13% 0.028 261.692);
+    --color-neutral-content: oklch(98% 0.002 247.839);
+    --color-info: oklch(62% 0.214 259.815);
+    --color-info-content: oklch(97% 0.014 254.604);
+    --color-success: oklch(72% 0.219 149.579);
+    --color-success-content: oklch(98% 0.018 155.826);
+    --color-warning: oklch(79% 0.184 86.047);
+    --color-warning-content: oklch(98% 0.026 102.212);
+    --color-error: oklch(64% 0.246 16.439);
+    --color-error-content: oklch(96% 0.015 12.422);
+    --radius-selector: 1rem;
+    --radius-field: 0.5rem;
+    --radius-box: 0.5rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1.5px;
+    --depth: 0;
+    --noise: 1;
+}
+
+
+@source "../../vendor/robsontenorio/mary/src/View/Components/**/*.php";
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+@source "../../storage/framework/views/*.php";
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+
+/* Active page highlight */
+.mary-table-pagination span[aria-current="page"] > span {
+    @apply bg-primary text-base-100
+}
+
+/* For dark mode*/
+.mary-table-pagination span[aria-disabled="true"] span {
+    @apply bg-inherit
+}
+
+/* For dark mode*/
+.mary-table-pagination button {
+    @apply bg-base-100
+}
+
+/** General button **/
+.mary-table-pagination button {
+    @apply cursor-pointer
+}
+
+/** Active button **/
+.mary-table-pagination span[aria-current="page"] > span {
+    @apply bg-primary text-base-100
+}
